@@ -1,0 +1,17 @@
+name: Sync Labels
+
+on:
+  push:
+    paths:
+      - '.github/labels.yml'
+  workflow_dispatch: # 手動実行ボタンも有効化
+
+jobs:
+  labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Sync labels
+        uses: crazy-max/ghaction-github-labeler@v5
+        with:
+          yaml-file: .github/labels.yml

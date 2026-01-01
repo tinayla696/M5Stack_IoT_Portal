@@ -1,0 +1,17 @@
+name: Notify Portal
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch signal to Portal
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PROJECT_REPO_PAT }} # 事前にSecrets登録が必要
+          repository: your-org/temp_knowledge_portal # ★実際の親リポジトリ名に修正が必要（テンプレート利用時に置換）
+          event-type: app-update
+          client-payload: '{"app_name": "temp_app", "version": "${{ github.event.release.tag_name }}"}'
