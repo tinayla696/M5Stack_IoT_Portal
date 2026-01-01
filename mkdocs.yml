@@ -1,7 +1,7 @@
-site_name: <Application Name>
-site_description: <Application Description>
-repo_name: <Application Repository Name>
-repo_url: <Application Repository URL>
+site_name: CAN Gateway Documentation
+site_description: Documentation for the CAN Gateway Application
+repo_name: tinayla696/mp135_gateway_go
+repo_url: https://github.com/tinayla696/mp135_gateway_go
 
 # MkDocs Material テーマの設定
 theme:
