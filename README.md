@@ -1,33 +1,107 @@
-# [App Name] Application Repository
+# M5Stack CoreMP135 CAN Gateway Application
 
-本リポジトリは、アプリケーションのソースコードおよび詳細仕様書を管理する子リポジトリです。
-親リポジトリ (Portal) と連携し、ドキュメントの更新は自動的にポータルサイトへ反映されます。
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![CMake](https://img.shields.io/badge/CMake-064F8C?style=for-the-badge&logo=cmake&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
-## 🏁 セットアップ手順 (初回のみ)
+M5Stack CoreMP135を使用したCANバスゲートウェイアプリケーションのリポジトリです。  
+CANバス経由でデータを収集し、IoTシステムとの連携を実現します。
 
-### 1. ワークフロー設定
-`.github/workflows/notify_portal.yml` を開き、以下の箇所を修正してコミットしてください [cite: 580]。
-* `repository`: 親リポジトリ名 (例: `org/project_portal`)
-* `app_name`: アプリ名 (例: `sales_app`)
+## 📋 概要
 
-### 2. Secrets設定
-`Settings` > `Secrets and variables` > `Actions` に以下を登録してください [cite: 474]。
-* **Name:** `PROJECT_REPO_PAT`
-* **Value:** 管理者の Personal Access Token (Repo権限付き)
+このプロジェクトは、M5Stack CoreMP135デバイスを利用して、CANバスネットワークからデータを受信し、
+処理・転送を行うゲートウェイアプリケーションです。産業用IoTシステムや車載ネットワークとの統合に最適です。
 
-## 🛠 開発ルール (Docs as Code)
+## 🚀 主な機能
 
-### 1. ブランチ命名規則 [cite: 511]
-| Prefix | 用途 | 例 |
-| :--- | :--- | :--- |
-| `feature/` | 新機能 (Minor Update) | `feature/login` |
-| `bugfix/` | バグ修正 (Patch Update) | `bugfix/header` |
-| `docs/` | ドキュメントのみ | `docs/manual` |
+- 📡 CANバス通信インターフェース
+- 🔄 リアルタイムデータ処理
+- 🌐 ネットワークゲートウェイ機能
+- 📊 データログ記録
+- ⚙️ 柔軟な設定管理
 
-### 2. 実装・PRルール
-* **ドキュメント同期:** コード修正時は、必ず同じPR内で `docs/` 配下も修正してください [cite: 526]。
-* **PR記述:** Description に必ず `Closes #Issue番号` を記述してください [cite: 532]。
-* **マージ:** **Squash and Merge** が必須です [cite: 543]。
+## 🛠️ 技術スタック
 
-## 📦 リリース
-PRが `main` にマージされると、**自動的にタグが付与され**、親リポジトリへ同期・デプロイされます。手動でのタグ作成は禁止です 。
+- **言語**: C/C++
+- **プラットフォーム**: M5Stack CoreMP135 (Linux)
+- **通信**: CAN Bus, TCP/IP, MQTT (予定)
+- **ビルドシステム**: CMake
+- **バージョン管理**: Git
+
+## 📁 プロジェクト構成
+
+```
+mp135_gateway_cpp/
+├── src/              # ソースコード
+├── docs/             # ドキュメント
+├── datas/            # データファイル
+├── README.md         # プロジェクト概要
+├── mkdocs.yml        # ドキュメント設定
+└── requirements.txt  # Python依存関係 (ドキュメント生成用)
+```
+
+## 🔧 セットアップ
+
+### 必要な環境
+
+- M5Stack CoreMP135
+- GCC/G++ コンパイラ
+- CMake (3.10以降)
+- CAN通信用のハードウェア/ドライバ
+
+### ビルド手順
+
+```bash
+# リポジトリのクローン
+git clone https://github.com/tinayla696/mp135_gateway_cpp.git
+cd mp135_gateway_cpp
+
+# ビルドディレクトリの作成
+mkdir build && cd build
+
+# CMakeの実行
+cmake ..
+
+# ビルド
+make
+
+# 実行
+./can_gateway
+```
+
+## 📖 ドキュメント
+
+詳細なドキュメントは `docs/` ディレクトリを参照してください。
+
+```bash
+# ドキュメントのビルド (MkDocs)
+pip install -r requirements.txt
+mkdocs serve
+```
+
+## 🤝 コントリビューション
+
+プルリクエストを歓迎します！以下の手順でご協力ください：
+
+1. このリポジトリをフォーク
+2. フィーチャーブランチを作成 (`git checkout -b feature/amazing-feature`)
+3. 変更をコミット (`git commit -m 'Add some amazing feature'`)
+4. ブランチにプッシュ (`git push origin feature/amazing-feature`)
+5. プルリクエストを作成
+
+## � ライセンス
+
+このプロジェクトのライセンスについては、リポジトリ管理者にお問い合わせください。
+
+## 👥 作成者
+
+- GitHub: [@tinayla696](https://github.com/tinayla696)
+
+## 🔗 関連リンク
+
+- [M5Stack 公式サイト](https://m5stack.com/)
+- [M5Stack CoreMP135 製品ページ](https://docs.m5stack.com/en/core/CoreMP135)
+- [CAN Bus プロトコル](https://en.wikipedia.org/wiki/CAN_bus)
