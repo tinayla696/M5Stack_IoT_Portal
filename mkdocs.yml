@@ -30,8 +30,8 @@ theme:
     code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
-  logo: assets/logo.png  # ロゴ画像を追加する場合
-  favicon: assets/favicon.ico  # ファビコンを追加する場合
+  # logo: assets/logo.png  # ロゴ画像を追加する場合
+  # favicon: assets/favicon.ico  # ファビコンを追加する場合
   highlightjs: true
   hljs_languages:
     - python
