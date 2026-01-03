@@ -1,8 +1,10 @@
 site_name: M5Stack CoreMP135 IoT Portal
 site_description: M5Stack CoreMP135を活用したIoTシステム開発プロジェクトの統合ポータル
 site_author: tinayla696
+site_url: https://tinayla696.github.io/M5Stack_IoT_Portal/
 repo_name: tinayla696/M5Stack_IoT_Portal
 repo_url: https://github.com/tinayla696/M5Stack_IoT_Portal
+use_directory_urls: true
 
 # MkDocs Material テーマの設定
 theme:
@@ -94,7 +96,7 @@ plugins:
       lang:
         - ja
         - en
-  - glightbox  # 画像のライトボックス表示（インストール: pip install mkdocs-glightbox）
+  # - glightbox  # 画像のライトボックス表示（一時的に無効化）
 
 # 追加のJavaScript
 extra_javascript:
