@@ -1,38 +1,107 @@
-site_name: Project Name>
-site_description: <Project Description>
-repo_name: <GitHub Repository Name>
-repo_url: <GitHub Repository URL>
+site_name: CAN Gateway Documentation
+site_description: M5Stack CoreMP135 CANゲートウェイアプリケーション技術仕様書
+repo_name: tinayla696/mp135_gateway_go
+repo_url: https://github.com/tinayla696/mp135_gateway_go
+edit_uri: edit/main/docs/
 
 # MkDocs Material テーマの設定
 theme:
   name: material
   language: ja
-  highlightjs: true
-  hljs_languages:
-    - python
-    - yaml
-    - bash
+  palette:
+    # ライトモード
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # ダークモード
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  font:
+    text: Noto Sans JP
+    code: Roboto Mono
   features:
-    # - navigation.tabs
-    # - navigation.top
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.tracking
     - search.highlight
-    - search.suggestions
+    - search.suggest
+    - search.share
     - content.code.copy
     - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
 
 # Markdown 拡張機能の設定
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences  # ★変更: シンプルな記述のみにします
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - footnotes
   - toc:
       permalink: true
+      title: 目次
 
-# # Mermaid.js の設定 (CDNから読み込み)
-# extra_javascript:
-#   - https://unpkg.com/mermaid/dist/mermaid.min.js
+# プラグイン設定
+plugins:
+  - search:
+      lang: ja
+      separator: '[\s\-\.]+'
 
+# 追加CSS/JS
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+# フッター設定
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tinayla696/mp135_gateway_go
+      name: GitHub Repository
+  version:
+    provider: mike
+  generator: false
+
+# 著作権表示
+copyright: Copyright &copy; 2026 tinayla696
 
 # ナビゲーションメニューの設定
 nav:
-  - Home: index.md
+  - ホーム: index.md
+  - アーキテクチャ設計書: architecture.md
+  - API仕様: api.md
+  - 運用ガイド: operations.md
+  - 開発ガイド: development.md

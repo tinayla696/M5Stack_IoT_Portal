@@ -1,1 +1,0 @@
-# Knowledge Application Documentation
