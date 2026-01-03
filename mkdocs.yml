@@ -1,38 +1,128 @@
-site_name: Project Name>
-site_description: <Project Description>
-repo_name: <GitHub Repository Name>
-repo_url: <GitHub Repository URL>
+site_name: M5Stack CoreMP135 IoT Portal
+site_description: M5Stack CoreMP135を活用したIoTシステム開発プロジェクトの統合ポータル
+site_author: tinayla696
+repo_name: tinayla696/M5Stack_IoT_Portal
+repo_url: https://github.com/tinayla696/M5Stack_IoT_Portal
 
 # MkDocs Material テーマの設定
 theme:
   name: material
   language: ja
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: ダークモードに切り替え
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: ライトモードに切り替え
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+  logo: assets/logo.png  # ロゴ画像を追加する場合
+  favicon: assets/favicon.ico  # ファビコンを追加する場合
   highlightjs: true
   hljs_languages:
     - python
+    - cpp
+    - go
     - yaml
     - bash
+    - json
   features:
-    # - navigation.tabs
-    # - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
     - search.highlight
-    - search.suggestions
+    - search.suggest
+    - search.share
     - content.code.copy
     - content.code.select
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
 
 # Markdown 拡張機能の設定
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences  # ★変更: シンプルな記述のみにします
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - footnotes
   - toc:
       permalink: true
+      title: 目次
 
-# # Mermaid.js の設定 (CDNから読み込み)
-# extra_javascript:
-#   - https://unpkg.com/mermaid/dist/mermaid.min.js
+# プラグイン
+plugins:
+  - search:
+      lang:
+        - ja
+        - en
+  - glightbox  # 画像のライトボックス表示（インストール: pip install mkdocs-glightbox）
 
+# 追加のJavaScript
+extra_javascript:
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
+
+# 追加のCSS
+extra_css:
+  - stylesheets/extra.css  # カスタムスタイルを追加する場合
+
+# 追加情報
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/tinayla696/M5Stack_IoT_Portal
+      name: GitHub
+  generator: false  # "Made with Material for MkDocs" を非表示
 
 # ナビゲーションメニューの設定
 nav:
   - Home: index.md
+  - プロジェクト:
+    - 概要: projects.md
+    - MP135 Gateway (C++): https://github.com/tinayla696/mp135_gateway_cpp
+    - MP135 Gateway (Go): https://github.com/tinayla696/mp135_gateway_go
+  - リソース:
+    - 概要: resources.md
+    - M5Stack CoreMP135公式: https://docs.m5stack.com/en/core/CoreMP135
+    - GitHub リポジトリ: https://github.com/tinayla696/M5Stack_IoT_Portal
+  - コントリビュート:
+    - コントリビューションガイド: contributing.md
+    - 変更履歴: changelog.md

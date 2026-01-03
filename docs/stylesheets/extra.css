@@ -1,0 +1,58 @@
+/* M5Stack IoT Portal カスタムスタイル */
+
+/* ヒーローセクションのスタイル */
+.md-typeset h1 {
+    font-weight: 700;
+    color: var(--md-primary-fg-color);
+}
+
+/* コードブロックのスタイル調整 */
+.md-typeset code {
+    background-color: var(--md-code-bg-color);
+    border-radius: 0.2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+/* アドモニションのカスタマイズ */
+.md-typeset .admonition {
+    border-left: 0.4rem solid;
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05);
+    margin: 1.5625em 0;
+    padding: 0 1.2rem;
+}
+
+/* タブのスタイル調整 */
+.tabbed-set {
+    margin: 1em 0;
+}
+
+/* テーブルのスタイル改善 */
+.md-typeset table:not([class]) {
+    border-radius: 0.2rem;
+    box-shadow: 0 0.2rem 0.5rem rgba(0,0,0,.05);
+    display: table;
+    margin: 1.5625em 0;
+}
+
+/* ナビゲーションのカスタマイズ */
+.md-nav__link--active {
+    font-weight: 700;
+}
+
+/* フッターのカスタマイズ */
+.md-footer-meta {
+    background-color: var(--md-default-bg-color);
+}
+
+/* M5Stackテーマカラー */
+:root {
+    --m5stack-red: #e74c3c;
+    --m5stack-blue: #3498db;
+    --m5stack-green: #2ecc71;
+}
+
+/* アイコンのカラー調整 */
+.md-typeset .twemoji {
+    vertical-align: text-bottom;
+}

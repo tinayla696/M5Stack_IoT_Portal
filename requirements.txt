@@ -1,4 +1,11 @@
-# MkDocs
-mkdocs>=1.5.0
-mkdocs-material>=9.4.0
+# MkDocs Core
+mkdocs>=1.6.0
+mkdocs-material>=9.5.0
+
+# MkDocs Plugins
 mkdocs-mermaid2-plugin>=1.1.1
+mkdocs-glightbox>=0.4.0
+pymdown-extensions>=10.8
+
+# その他
+Pygments>=2.17.0
